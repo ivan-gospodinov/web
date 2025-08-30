@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>System Override</title>
+  <!-- Add Google Fonts link -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: black;
+      color: red;
+      font-family: 'Orbitron', monospace;
+      text-align: center;
+      padding-top: 20%;
+    }
+    #countdown {
+      font-size: 80px;
+      text-shadow: 0 0 20px red;
+    }
+    #main {
+      display: none;
+      color: lime;
+    }
+  </style>
+</head>
+<body>
+  <div id="countdown">5</div>
+
+  <div id="main">
+    <h1>>> ACCESS OVERRIDE TRIGGERED...</h1>
+    <p>Payload active. Device alarm online.</p>
+    <ul style="list-style: none;">
+      <li>● SYSTEM_BREACH <span style="color:red;">ACTIVE</span></li>
+      <li>● ALARM_STATUS <span style="color:lime;">ONLINE</span></li>
+      <li>● SECURITY_LVL <span style="color:yellow;">COMPROMISED</span></li>
+    </ul>
+  </div>
+
+  <audio id="beep">
+    <source src="https://www.soundjay.com/button/beep-07.wav" type="audio/wav">
+  </audio>
+
+  <script>
+    let timeLeft = 5;
+    const countdownEl = document.getElementById("countdown");
+    const mainEl = document.getElementById("main");
+    const beep = document.getElementById("beep");
+
+    const timer = setInterval(() => {
+      countdownEl.textContent = timeLeft;
+      beep.play();
+
+      if (timeLeft <= 0) {
+        clearInterval(timer);
+        countdownEl.style.display = "none";
+        mainEl.style.display = "block";
+      }
+      timeLeft--;
+    }, 1000);
+  </script>
+</body>
+</html>
