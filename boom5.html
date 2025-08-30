@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Add Google Fonts link -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron" rel="stylesheet">
   <style>
     body {
       background: black;
@@ -14,7 +14,7 @@
       font-family: 'Orbitron', monospace;
 	  font-size: 30px;
       text-align: center;
-      padding-top: 20%;
+	  padding-top:20%;
     }
     #countdown {
       font-size: 140px;
@@ -24,9 +24,14 @@
       display: none;
       color: lime;
     }
+	.content {
+	  max-width: 960px;
+	  margin: auto;
+	}
   </style>
 </head>
 <body>
+<div class="content">
   <div id="countdown">5</div>
 
   <div id="main">
@@ -39,10 +44,6 @@
     </ul>
   </div>
 
-  <audio id="beep">
-    <source src="https://www.soundjay.com/button/beep-07.wav" type="audio/wav">
-  </audio>
-
   <script>
     let timeLeft = 5;
     const countdownEl = document.getElementById("countdown");
@@ -51,7 +52,6 @@
 
     const timer = setInterval(() => {
       countdownEl.textContent = timeLeft;
-      beep.play();
 
       if (timeLeft <= 0) {
         clearInterval(timer);
@@ -61,5 +61,6 @@
       timeLeft--;
     }, 1000);
   </script>
+  </div>
 </body>
 </html>
